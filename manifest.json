@@ -2,10 +2,15 @@
     "name": "Twitch-Points-Chrome-Plugin",
     "version": "0.0.1",
     "manifest_version": 2,
-    "content_scripts": [
-        {
-            "matches": ["https://*.twitch.tv/*"],
-            "js": ["twitch-tv.js"]
-        }
+    "content_scripts": [{
+        "matches": ["*://*.twitch.tv/*"],
+        "js": ["twitch-tv.js"],
+        "run_at": "document_idle"
+    }],
+    "permissions": [
+        "*://*.twitch.tv/*",
+        "tabs",
+        "storage",
+        "notifications"
     ]
 }
